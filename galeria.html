@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resort Dom Basílio | Galeria</title>
+
+    <meta name="description"
+          content="Explore as imagens das acomodações e dos espaços de lazer do Resort Dom Basílio.">
+
+    <!-- Estilos compartilhados por todas as páginas -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- O defer faz o JavaScript executar após a leitura do HTML -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- O JavaScript preenche o menu neste espaço -->
+    <header class="cabecalho"></header>
+
+    <main>
+        <section class="banner">
+            <h1>Conheça cada espaço</h1>
+
+            <p>
+                Acomodações, natureza e ambientes para
+                aproveitar seus dias em Aldeia.
+            </p>
+        </section>
+
+        <section class="secao apresentacao">
+            <div class="container">
+                <h2>Um passeio pelo Dom Basílio</h2>
+
+                <p class="texto-introducao">
+                    Imagens ilustrativas do nosso projeto acadêmico.
+                    Selecione uma foto para ampliá-la.
+                </p>
+
+                            <div class="grade-galeria">
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/banner-principal.png"
+                        alt="Vista geral do resort com piscina e chalés"
+                        loading="lazy">
+                    <span>Vista geral</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/fachada-resort.png"
+                        alt="Fachada do resort cercada por jardins"
+                        loading="lazy">
+                    <span>Fachada</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/chale-casal.png"
+                        alt="Chalé Casal com cama de casal e varanda"
+                        loading="lazy">
+                    <span>Chalé Casal</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/chale-familia.png"
+                        alt="Chalé Família com uma cama de casal e duas de solteiro"
+                        loading="lazy">
+                    <span>Chalé Família</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/suite-premium.png"
+                        alt="Suíte Premium com cama queen-size e área de estar"
+                        loading="lazy">
+                    <span>Suíte Premium</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/piscina.png"
+                        alt="Piscina com espreguiçadeiras e guarda-sóis"
+                        loading="lazy">
+                    <span>Piscina</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/area-verde.png"
+                        alt="Caminho de pedra entre jardins e bancos à sombra"
+                        loading="lazy">
+                    <span>Área verde</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/espaco-infantil.png"
+                        alt="Espaço infantil com escorregador e balanços"
+                        loading="lazy">
+                    <span>Espaço infantil</span>
+                </button>
+
+                <button class="foto-galeria" type="button">
+                    <img src="imagens/restaurante.png"
+                        alt="Restaurante com café da manhã regional e vista para o jardim"
+                        loading="lazy">
+                    <span>Restaurante</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Janela de ampliação: fica oculta até ser aberta -->
+        <dialog
+            id="visualizador-foto"
+            class="visualizador-foto"
+            aria-labelledby="legenda-ampliada">
+
+            <button
+                id="fechar-foto"
+                class="fechar-foto"
+                type="button"
+                autofocus>
+                Fechar foto
+            </button>
+
+            <figure>
+                <img id="imagem-ampliada" alt="">
+                <figcaption id="legenda-ampliada"></figcaption>
+            </figure>
+        </dialog>
+
+    <!-- Informações presentes no final da página -->
+    <!-- O JavaScript preenche o rodapé neste espaço -->
+    <footer class="rodape"></footer>
+</body>
+</html>

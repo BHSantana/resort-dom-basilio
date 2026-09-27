@@ -1,0 +1,846 @@
+/* 1. Cores que vamos reutilizar no site */
+:root {
+    --verde-escuro: #163a2d;
+    --verde-natural: #3f6b4f;
+    --dourado: #c78b3c;
+    --areia: #f4ebdd;
+    --branco: #ffffff;
+    --grafite: #252525;
+}
+
+/* 2. Remove os espaçamentos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 3. Aparência geral */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--grafite);
+    background-color: var(--areia);
+}
+
+/* 4. Cabeçalho que permanece no topo */
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    padding: 20px 5%;
+    background-color: var(--verde-escuro);
+}
+
+/* 5. Nome do resort */
+.marca {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--branco);
+    text-decoration: none;
+}
+
+/* 6. Links do menu */
+.menu-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    list-style: none;
+}
+
+.menu-lista a {
+    display: inline-block;
+    padding: 6px 0;
+    color: var(--branco);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+/* Destaque ao passar o mouse ou navegar pelo teclado */
+.menu-lista a:hover,
+.menu-lista a:focus-visible {
+    border-bottom-color: var(--dourado);
+}
+
+/* Identifica a página que está aberta */
+.menu-lista a[aria-current="page"] {
+    border-bottom-color: var(--dourado);
+    font-weight: bold;
+}
+
+/* 7. Banner inicial — depois receberá uma imagem */
+.banner {
+    padding: 90px 5%;
+    text-align: center;
+    background-color: var(--areia);
+}
+
+.banner h1 {
+    max-width: 800px;
+    margin: 0 auto 24px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    line-height: 1.2;
+    color: var(--verde-escuro);
+}
+
+.banner p {
+    max-width: 650px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+}
+
+/* 8. Link com aparência de botão */
+.botao {
+    display: inline-block;
+    padding: 14px 24px;
+
+    background-color: var(--dourado);
+    color: var(--grafite);
+    border-radius: 6px;
+
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.botao:hover {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+}
+
+/* Contorno visível para quem usa a tecla Tab */
+a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
+/* 9. Rodapé */
+.rodape {
+    padding: 32px 5%;
+    text-align: center;
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+}
+
+.rodape p {
+    margin-bottom: 8px;
+}
+
+.rodape address {
+    margin-bottom: 16px;
+    font-style: normal;
+}
+
+/* 10. Ajustes para telas menores */
+@media (max-width: 1100px) {
+    .cabecalho {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .menu-lista {
+        justify-content: center;
+        gap: 8px 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cabecalho {
+        padding: 12px 4%;
+    }
+
+    .marca {
+        font-size: 22px;
+    }
+
+    .banner {
+        padding: 56px 5%;
+    }
+
+    .banner h1 {
+        font-size: 30px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+}
+
+/* 11. Limita a largura e centraliza o conteúdo */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 12. Espaçamento das seções */
+.secao {
+    padding: 64px 0;
+}
+
+.secao h2 {
+    margin-bottom: 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1.3;
+    color: var(--verde-escuro);
+    text-align: center;
+}
+
+.texto-introducao {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+/* 13. Apresentação */
+.apresentacao {
+    background-color: var(--branco);
+    text-align: center;
+}
+
+.link-destaque {
+    color: var(--verde-escuro);
+    font-weight: bold;
+    text-underline-offset: 4px;
+}
+
+.link-destaque:hover {
+    color: var(--verde-natural);
+}
+
+/* 14. Grade das acomodações */
+.lista-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* 15. Cada card de acomodação */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 28px;
+    background-color: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    font-size: 22px;
+    color: var(--verde-escuro);
+}
+
+/* Alinha os botões na parte inferior dos cards */
+.card .botao {
+    margin-top: auto;
+}
+
+/* 16. Cards empilhados em telas menores */
+@media (max-width: 800px) {
+    .lista-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .secao {
+        padding: 40px 0;
+    }
+
+    .secao h2 {
+        font-size: 28px;
+    }
+}
+
+/* 17. Fundo da seção de lazer */
+.lazer {
+    background-color: var(--branco);
+}
+
+/* Destaca os cards sobre o fundo branco */
+.lazer .card {
+    background-color: var(--areia);
+}
+
+/* Centraliza o botão abaixo dos cards */
+.acao-secao {
+    margin-top: 32px;
+    text-align: center;
+}
+
+/* 18. Lista de diferenciais */
+.lista-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    margin-top: 32px;
+    list-style: none;
+}
+
+.lista-diferenciais li {
+    padding-top: 20px;
+    border-top: 3px solid var(--dourado);
+}
+
+.lista-diferenciais h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: var(--verde-escuro);
+}
+
+/* 19. Chamada para reservas */
+.chamada-reserva {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    text-align: center;
+}
+
+.chamada-reserva h2 {
+    color: var(--branco);
+}
+
+/* Mantém o botão visível sobre o fundo verde */
+.chamada-reserva .botao:hover {
+    background-color: var(--branco);
+    color: var(--verde-escuro);
+}
+
+/* 20. Diferenciais em uma coluna nas telas menores */
+@media (max-width: 800px) {
+    .lista-diferenciais {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 21. Botão do menu */
+.botao-menu {
+    display: none;
+    padding: 10px 16px;
+
+    font: inherit;
+    font-weight: bold;
+    color: var(--branco);
+    background-color: transparent;
+
+    border: 1px solid var(--branco);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.botao-menu:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 4px;
+}
+
+/* 22. Menu para celular e tablet */
+@media (max-width: 1100px) {
+    .cabecalho {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .marca {
+        flex: 1;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .menu-lista {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .menu-lista a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* Estas regras só entram quando o JavaScript está funcionando */
+    .cabecalho.menu-interativo .botao-menu {
+        display: block;
+    }
+
+    .cabecalho.menu-interativo .menu {
+        display: none;
+    }
+
+    .cabecalho.menu-interativo .menu.aberto {
+        display: block;
+        max-height: 65vh;
+        overflow-y: auto;
+    }
+}
+
+/* 23. Seções de detalhes das acomodações */
+.detalhe-acomodacao {
+    /* Deixa espaço para o cabeçalho ao acessar um link com # */
+    scroll-margin-top: 120px;
+    background-color: var(--branco);
+}
+
+/* Diferencia visualmente a seção do chalé família */
+#chale-familia {
+    background-color: var(--areia);
+}
+
+/* 24. Ficha com as informações da acomodação */
+.ficha-acomodacao {
+    max-width: 760px;
+    margin: 0 auto;
+    border: 1px solid var(--verde-natural);
+}
+
+/* 25. Lista de comodidades */
+.lista-comodidades {
+    padding-left: 22px;
+}
+
+.lista-comodidades li {
+    margin-bottom: 8px;
+}
+
+.lista-comodidades li::marker {
+    color: var(--verde-natural);
+}
+
+/* 26. Estrutura dos formulários */
+.formulario {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px;
+
+    text-align: left;
+    background-color: var(--areia);
+    border-radius: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    /* Permite que os campos encolham dentro da grade */
+    min-width: 0;
+}
+
+.campo label {
+    font-weight: bold;
+    color: var(--verde-escuro);
+}
+
+/* 27. Aparência dos campos */
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+
+    font: inherit;
+    color: var(--grafite);
+    background-color: var(--branco);
+
+    border: 1px solid var(--verde-natural);
+    border-radius: 6px;
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+/* Destaca o campo que está sendo preenchido */
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: 2px solid var(--verde-escuro);
+    outline-offset: 2px;
+}
+
+/* 28. Datas lado a lado */
+.linha-formulario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* 29. Botão e mensagens */
+.formulario .botao {
+    border: none;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario .botao:focus-visible {
+    outline: 3px solid var(--verde-escuro);
+    outline-offset: 4px;
+}
+
+.formulario .botao:disabled {
+    background-color: #dddddd;
+    color: #555555;
+    cursor: not-allowed;
+}
+
+.ajuda-formulario {
+    margin-top: 16px;
+}
+
+.mensagem-formulario:not(:empty) {
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid var(--verde-escuro);
+    border-radius: 6px;
+}
+
+/* 30. Formulário em telas pequenas */
+@media (max-width: 600px) {
+    .formulario {
+        padding: 20px;
+    }
+
+    .linha-formulario {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* 31. Organização das fotos da galeria */
+.grade-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Cada foto será um botão para permitir ampliação */
+.foto-galeria {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+    font: inherit;
+    text-align: left;
+    color: var(--verde-escuro);
+    background-color: var(--areia);
+
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.foto-galeria img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.foto-galeria span {
+    display: block;
+    padding: 16px;
+    font-weight: bold;
+}
+
+.foto-galeria:focus-visible {
+    outline: 3px solid var(--verde-escuro);
+    outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+    .grade-galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .grade-galeria {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 32. Logo do menu compartilhado */
+.marca {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.logo {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 33. Banner com imagem na página inicial */
+.banner-inicio {
+    min-height: 520px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("../imagens/banner-principal.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: var(--branco);
+}
+
+.banner-inicio h1 {
+    color: var(--branco);
+}
+
+/* 34. Ajustes para telas menores */
+@media (max-width: 600px) {
+    .logo {
+        width: 170px;
+    }
+
+    .banner-inicio {
+        min-height: 420px;
+        padding: 56px 5%;
+    }
+}
+
+/* 35. Fotos dos cards da página inicial */
+.imagem-card {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* 36. Fotos da página de acomodações */
+.imagem-acomodacao {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 37. Fotos de destaque nas páginas Sobre e Gastronomia */
+.imagem-destaque {
+    display: block;
+    width: 100%;
+    max-width: 960px;
+    height: auto;
+    margin: 0 auto 32px;
+    border-radius: 12px;
+}
+
+/* 41. Foto de fundo na apresentação da página inicial */
+.apresentacao-inicio {
+    padding: 100px 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)
+        ),
+        url("../imagens/fachada-resort.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: var(--branco);
+}
+
+/* Mantém os textos legíveis sobre a foto */
+.apresentacao-inicio h2,
+.apresentacao-inicio .link-destaque {
+    color: var(--branco);
+}
+
+.apresentacao-inicio .link-destaque:hover {
+    color: var(--branco);
+    text-decoration-thickness: 3px;
+}
+
+@media (max-width: 600px) {
+    .apresentacao-inicio {
+        padding: 64px 0;
+    }
+}
+
+/* Melhora a leitura do texto sobre a fachada */
+.apresentacao-inicio .texto-introducao {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.8;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 600px) {
+    .apresentacao-inicio .texto-introducao {
+        font-size: 18px;
+    }
+}
+
+/* 42. Banner com foto em todas as páginas */
+.pagina-com-fotos .banner {
+    min-height: 380px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)
+        ),
+        var(--banner-pagina);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: var(--branco);
+}
+
+.pagina-com-fotos .banner h1 {
+    color: var(--branco);
+}
+
+.pagina-com-fotos .banner p {
+    color: var(--branco);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.8;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+/* Mantém o banner principal mais alto */
+.pagina-com-fotos .banner-inicio {
+    min-height: 520px;
+}
+
+/* 43. Foto suave nas seções de conteúdo */
+/* Preserva a apresentação com fachada e as chamadas verdes */
+.pagina-com-fotos main > .secao:not(.apresentacao-inicio):not(.chamada-reserva) {
+    background-image:
+        linear-gradient(
+            rgba(244, 235, 221, 0.92),
+            rgba(244, 235, 221, 0.92)
+        ),
+        var(--fundo-pagina);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Cards e formulários mantêm uma superfície de leitura */
+.pagina-com-fotos .card,
+.pagina-com-fotos .formulario {
+    background-color: var(--branco);
+}
+
+/* 44. Ajustes para celular */
+@media (max-width: 600px) {
+    .pagina-com-fotos .banner {
+        min-height: 300px;
+        padding: 48px 5%;
+    }
+
+    .pagina-com-fotos .banner-inicio {
+        min-height: 420px;
+    }
+
+    .pagina-com-fotos .banner p {
+        font-size: 18px;
+    }
+}
+
+/* 45. Janela de ampliação das fotos */
+.visualizador-foto {
+    width: 92%;
+    max-width: 1100px;
+    max-height: 90vh;
+    margin: auto;
+    padding: 20px;
+    overflow-y: auto;
+
+    background-color: var(--branco);
+    color: var(--verde-escuro);
+
+    border: none;
+    border-radius: 12px;
+}
+
+/* Escurece a página atrás da janela */
+.visualizador-foto::backdrop {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.visualizador-foto figure {
+    margin: 0;
+}
+
+#imagem-ampliada {
+    display: block;
+    width: 100%;
+    max-height: 65vh;
+    object-fit: contain;
+}
+
+#legenda-ampliada {
+    margin-top: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Botão de fechamento */
+.fechar-foto {
+    display: block;
+    margin: 0 0 16px auto;
+    padding: 10px 16px;
+
+    font: inherit;
+    font-weight: bold;
+    color: var(--branco);
+    background-color: var(--verde-escuro);
+
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.fechar-foto:focus-visible {
+    outline: 3px solid var(--verde-escuro);
+    outline-offset: 3px;
+}
+
+/* Impede a rolagem da página enquanto a foto está aberta */
+body.foto-aberta {
+    overflow: hidden;
+}

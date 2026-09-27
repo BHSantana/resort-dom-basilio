@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resort Dom Basílio | Reservas</title>
+
+    <meta name="description"
+          content="Planeje sua estadia no Resort Dom Basílio com nosso formulário de simulação de reserva.">
+
+    <!-- Estilos compartilhados por todas as páginas -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- O defer faz o JavaScript executar após a leitura do HTML -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- O JavaScript preenche o menu neste espaço -->
+    <header class="cabecalho"></header>
+
+    <main>
+        <!-- Apresentação da página -->
+        <section class="banner">
+            <h1>Planeje sua estadia</h1>
+
+            <p>
+                Escolha a acomodação, informe suas datas
+                e prepare seus dias de descanso.
+            </p>
+        </section>
+
+        <!-- Formulário de simulação -->
+        <section class="secao apresentacao">
+            <div class="container">
+                <h2>Dados da hospedagem</h2>
+
+                <p id="aviso-reserva" class="texto-introducao">
+                    Preencha os dados para consultar disponibilidade pelo WhatsApp.
+                    A reserva depende da confirmação do atendimento.
+                </p>
+
+                <form
+                    id="formulario-reserva"
+                    class="formulario"
+                    aria-describedby="aviso-reserva">
+
+                    <div class="campo">
+                        <label for="nome">Nome completo</label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            autocomplete="name"
+                            required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="acomodacao">Acomodação</label>
+
+                        <select
+                            id="acomodacao"
+                            name="acomodacao"
+                            required>
+
+                            <option value="">Selecione uma opção</option>
+                            <option value="chale-casal">
+                                Chalé Casal — até 2 pessoas
+                            </option>
+                            <option value="chale-familia">
+                                Chalé Família — até 4 pessoas
+                            </option>
+                            <option value="suite-premium">
+                                Suíte Premium — até 2 pessoas
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="hospedes">
+                            Total de hóspedes, incluindo crianças
+                        </label>
+
+                        <input
+                            type="number"
+                            id="hospedes"
+                            name="hospedes"
+                            min="1"
+                            max="4"
+                            step="1"
+                            value="1"
+                            required>
+                    </div>
+
+                    <div class="linha-formulario">
+                        <div class="campo">
+                            <label for="entrada">Data de entrada</label>
+
+                            <input
+                                type="date"
+                                id="entrada"
+                                name="entrada"
+                                required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="saida">Data de saída</label>
+
+                            <input
+                                type="date"
+                                id="saida"
+                                name="saida"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="observacoes">
+                            Observações (opcional)
+                        </label>
+
+                        <textarea
+                            id="observacoes"
+                            name="observacoes"
+                            rows="4"
+                            maxlength="500"
+                            placeholder="Informe alguma preferência para sua estadia."></textarea>
+                    </div>
+
+                    <!-- Será habilitado quando adicionarmos a validação -->
+                    <button
+                        id="botao-reserva"
+                        class="botao"
+                        type="submit"
+                        disabled>
+                        Consultar pelo WhatsApp
+                    </button>
+
+                    <!-- O JavaScript exibirá o resultado neste espaço -->
+                    <p
+                        id="mensagem-reserva"
+                        class="mensagem-formulario"
+                        role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Informações presentes no final da página -->
+    <!-- O JavaScript preenche o rodapé neste espaço -->
+    <footer class="rodape"></footer>
+</body>
+</html>
