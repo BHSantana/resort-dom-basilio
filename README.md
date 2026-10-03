@@ -34,6 +34,23 @@ Atualmente, o sistema conta com páginas dedicadas para:
 - GitHub
 - GitHub Pages
 
+## 🚀 Melhorias da versão otimizada
+
+Nesta atualização, o projeto passou por uma revisão de desempenho, organização e manutenção.
+
+Principais melhorias:
+
+- Conversão das imagens de PNG para WebP.
+- Redução do projeto de aproximadamente 28 MB para 2,1 MB.
+- Reorganização do CSS por seções.
+- Remoção de regras CSS repetidas ou sem utilização.
+- Separação do JavaScript em funções específicas.
+- Centralização do número utilizado nos links do WhatsApp.
+- Correção da estrutura semântica da página inicial.
+- Correção da estrutura HTML da galeria.
+- Melhorias no menu responsivo, formulários e visualizador de imagens.
+- Preservação do conteúdo e da identidade visual do site.
+
 ## 📁 Estrutura do projeto
 
 ```text
@@ -51,3 +68,7 @@ resort-dom-basilio/
 ├── galeria.html
 ├── reservas.html
 └── contato.html
+```
+
+As imagens do projeto utilizam o formato WebP para reduzir o tempo de
+carregamento sem comprometer a qualidade visual.
